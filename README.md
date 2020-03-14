@@ -71,3 +71,6 @@ git pull origin
 gpio -v
 ##最后一条命令 查看库版本，测试是否安装成功
 ```
+
+完工图：
+![Alt text](https://github.com/liangyinchuan/raspi-4B-PWM-fan/blob/master/img/WeChatee35231587d3662b5e35e14de04f07a4.png)
