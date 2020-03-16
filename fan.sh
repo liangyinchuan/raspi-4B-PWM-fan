@@ -10,11 +10,11 @@ MODE=2
 set_control_pin=1
 
 #设置开启风扇的最低温度
-set_temp_min=25000
+set_temp_min=30000
 #设置风扇全速运行的温度
 set_temp_max=36000
 #设置风扇停止温度
-set_temp_stop=20000
+set_temp_stop=28000
 
 #设置最低转速时的pwm值
 set_pwm_min=820
@@ -39,7 +39,7 @@ do
     load=`cat /proc/loadavg | awk '{print $1,$2,$3}'`
 
     #根据温度计算 pwm 值
-    pwm=$((($tmp-$set_temp_min)*($set_pwm_max-$set_pwm_min)/($set_temp_max-$set_temp_min)+$set_pwm_min))
+    pwm=$((($tmp-$set_temp_stop)*($set_pwm_max-$set_pwm_min)/($set_temp_max-$set_temp_stop)+$set_pwm_min))
     if [ $pwm -le $set_pwm_min ] ;then
         pwm=$set_pwm_stop
     fi
